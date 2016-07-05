@@ -1,8 +1,8 @@
 
-package java8.intro.defaultMethodInterface;
+package jUnit.intro.fraction;
 
 
-public class Faction {
+public class Fraction {
     private int numerator;
     private int denominator;
 
@@ -22,12 +22,12 @@ public class Faction {
         this.denominator = denominator;
     }
 
-    public Faction(int numerator, int denominator) {
+    public Fraction(int numerator, int denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
     }
 
-    Faction() {
+    Fraction() {
     };
 
     public String toString() {
@@ -38,7 +38,18 @@ public class Faction {
         return (double) this.getNumerator() / this.getDenomerator();
     }
 
-    public int compareTo(Faction faction) {
+    public int compareTo(Fraction faction) {
         return this.getActualValue() > faction.getActualValue() ? 1 : (-1);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        Fraction f = new Fraction();
+        if (obj instanceof Fraction) {
+            f = (Fraction) obj;
+        }
+        return (this.getActualValue() == f.getActualValue());
+
+    }
+
 }
